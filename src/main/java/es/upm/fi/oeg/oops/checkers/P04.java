@@ -111,8 +111,7 @@ public class P04 implements Checker {
 
             final List<ObjectProperty> frozenObjectProperties = model.listObjectProperties().toList();
 
-            System.out.println("TAMAÑO DE LISTA OBJ: " + frozenObjectProperties.size() + "holi"
-                    + frozenObjectProperties.toString());
+            //System.out.println("TAMAÑO DE LISTA OBJ: " + frozenObjectProperties.size());
             for (int i = 0; i < frozenObjectProperties.size(); i++) {
                 boolean hasDomain = true;
                 boolean hasRange = true;
@@ -120,7 +119,7 @@ public class P04 implements Checker {
                 boolean hasEquivalent = true;
                 boolean hasInverse = true;
                 ObjectProperty prueba1 = frozenObjectProperties.get(i);
-                System.out.println("Dominio " + prueba1.listDomain().hasNext());
+                // System.out.println("Dominio " + prueba1.listDomain().hasNext());
                 prueba1.listDomain();
 
                 if (prueba1.listSubProperties().hasNext() == false
@@ -150,14 +149,14 @@ public class P04 implements Checker {
 
             final List<DatatypeProperty> frozenDatatypeProperties = model.listDatatypeProperties().toList();
 
-            System.out.println("TAMAÑO DE LISTA OBJ: " + frozenDatatypeProperties.size());
+            // System.out.println("TAMAÑO DE LISTA OBJ: " + frozenDatatypeProperties.size());
             for (int i = 0; i < frozenDatatypeProperties.size(); i++) {
                 boolean hasDomain = true;
                 boolean hasRange = true;
                 boolean hasHierachy = true;
                 boolean hasEquivalent = true;
                 DatatypeProperty dataProp = frozenDatatypeProperties.get(i);
-                System.out.println("Dominio " + dataProp.listDomain().hasNext());
+                //System.out.println("Dominio " + dataProp.listDomain().hasNext());
                 dataProp.listDomain();
 
                 if (dataProp.listSubProperties().hasNext() == false

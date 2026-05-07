@@ -54,17 +54,19 @@ public class P10 implements Checker {
     public CheckerInfo getInfo() {
         return INFO;
     }
-    public static String askLLM(List<OntClass> subClassesList) {
+    public static String askLLM(String nombre, List<OntClass> subClassesList) {
         // Configuramos el modelo local
         OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
         String classesName = "";
         for (int i = 0; i < subClassesList.size(); i++) {
             classesName = classesName + ", " + subClassesList.get(i).getLocalName();
         }
-        System.out.println(classesName);
+        System.out.println("P10" + classesName);
         // Hacemos la petición
-        String respuesta = model.generate("Estos conceptos: " + classesName
-                + "Son disjuntos en el contexto de una ontología? Responde solo si o no");
+        String respuesta = model.generate("In the context of " + nombre
+                + "Determine if the following concepts are DISJOINT"
+                + " (They are mutually exclusive concepts that do not share any common ground, so it is impossible for an element to belong to both at the same time) "
+                + "or NOT. Return only yes or no." + "The concepts are:" + classesName);
 
         return respuesta;
 
@@ -103,7 +105,7 @@ public class P10 implements Checker {
                     classes = model.listNamedClasses();
                     continue;
                 }
-            } while (false);
+            } while (false);//??
         }
 
         // ahora probamos con owl2 OWL API
@@ -121,13 +123,13 @@ public class P10 implements Checker {
         //SE VA A AÑADIR AQUI LA FUNCION EXTRA PERO HAY Q COMPROBAR CON PRINTS
         List<OntClass> classesList = model.listNamedClasses().toList();
         List<OntClass> subClases = new ArrayList<OntClass>(); //CAMBIAR NOMBRE
-        System.out.println("TAMAÑO LISTA DE CLASES " + classesList.size());
+        // System.out.println("TAMAÑO LISTA DE CLASES " + classesList.size());
         //se buscan las clases raiz para buscar sus subclases
         for (int i = 0; i < classesList.size(); i++) {
             if (classesList.get(i).hasSubClass()) {
                 if (classesList.get(i).listSubClasses().toList().size() > 1) {
                     subClases.add(classesList.get(i));
-                    System.out.println("Creando lista de clases " + classesList.get(i).toString());
+                    // System.out.println("Creando lista de clases " + classesList.get(i).toString());
                 }
             }
         }
@@ -135,10 +137,11 @@ public class P10 implements Checker {
         for (int j = 0; j < subClases.size(); j++) {
             //AQUI SE LLAMA AL LLM PARA PREGUNTARLE SI SON DISJUNTOS
             List<OntClass> subClassesList = subClases.get(j).listSubClasses().toList();
-            String respuesta = askLLM(subClassesList);
-            System.out.println(respuesta);
-            if (respuesta.equals("Sí.")) {
-                System.out.println("HE ENTRADO");
+            String nombre = subClases.get(j).getLocalName();
+            System.out.println(nombre);
+            String respuesta = askLLM(nombre, subClassesList);
+            System.out.println("P10 Respuesta" + respuesta);
+            if (respuesta.equals("yes")) {
                 context.addResult(PITFALL_INFO, subClassesList);//revisar como se devuelve esto
             }
         }

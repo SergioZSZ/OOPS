@@ -63,7 +63,7 @@ public class P03 implements Checker {
 
         // Hacemos la petición
         String respuesta = model.generate(
-                "Traduce la siguiente palabra al inglés respetando el formato con el que esta esrito y devolviendo en la respuesta solo el texto traducido sin añadadidos. La palabra a traducir es: "
+                "Translate the following word into English. respect the original formatting and return only the translated text without any additions. This is the word to translate to english: "
                         + text);
 
         return respuesta;
@@ -78,9 +78,9 @@ public class P03 implements Checker {
         for (final ObjectProperty property : new ExtIterIterable<>(model.listObjectProperties())) {
             final String localName = property.getLocalName();
             String localName2 = "";
-            System.out.println("TEXTO ORIGINAL" + localName);
+            System.out.println("P03 ORIGINAL TEXT " + localName);
             localName2 = testLLM(localName);
-            System.out.println(localName2);
+            System.out.println("P03 TRANSLATED TEXT" + localName2);
             if (localName2 != null && IS_ALTS_LOWER.contains(localName2.toLowerCase())
                     && !Checker.fromModels(property)) {
                 context.addResult(PITFALL_INFO, property);

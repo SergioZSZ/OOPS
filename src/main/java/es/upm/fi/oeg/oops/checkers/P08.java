@@ -140,33 +140,33 @@ public class P08 implements Checker {
                 oboLabel = resource.getPropertyValue(oboDef).toString();
             }
 
-            System.out.println(label);
+            //System.out.println(label);
 
-            System.out.println("valor de LEMONDEF def: " + resource.getPropertyValue(oboDef));
+            System.out.println("P08 valor de OboDef def: " + resource.getPropertyValue(oboDef));
 
-            System.out.println("valor de skos def: " + resource.getPropertyValue(skosDef));
+            System.out.println("P08 valor de skos def: " + resource.getPropertyValue(skosDef));
 
-            System.out.println("valor de obo def: " + resource.getPropertyValue(skosLabel));
-            System.out.println(oboLabel);
-            System.out.println(skosPref);
+            System.out.println("P08 valor de skosLabel def: " + resource.getPropertyValue(skosLabel));
+            System.out.println("P08 valor de oboLabel def: " + oboLabel);
+            System.out.println("P08 valor de skosPrefLabel def: " + skosPref);
 
             if (!Checker.fromModels(resource)) {
                 if ((label == null) && (comment == null) && (definition == null) && (dctDescription == null)
                         && (skosPref == null)) {
                     // no annotations
-                    System.out.println("CASO 1");
+                    //System.out.println("CASO 1");
                     resNoAnnotation.add(resource);
                 } else if ((label == null && skosPref == null)
                         && ((comment != null) || (definition != null) || (dctDescription != null))) {
                     // only comment or skos:definition or dct:description
-                    System.out.println("CASO 2");
+                    // System.out.println("CASO 2");
                     //resNoAnnotation.add(resource); //la solucion es simple
                     resLabel.add(resource);
 
                 } else if ((label != null || skosPref != null) && (comment == null) && (definition == null)
                         && (dctDescription == null)) {
                     // only label
-                    System.out.println("CASO 3");
+                    //System.out.println("CASO 3");
                     //resNoAnnotation.add(resource);
                     resComment.add(resource);
                 }

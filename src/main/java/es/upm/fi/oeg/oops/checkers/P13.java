@@ -7,6 +7,10 @@
 
 package es.upm.fi.oeg.oops.checkers;
 
+import static es.upm.fi.oeg.oops.Constants.LLM_IP;
+import static es.upm.fi.oeg.oops.Constants.LLM_MODEL;
+
+import dev.langchain4j.model.ollama.OllamaChatModel;
 import es.upm.fi.oeg.oops.Arity;
 import es.upm.fi.oeg.oops.Checker;
 import es.upm.fi.oeg.oops.CheckerInfo;
@@ -66,6 +70,17 @@ public class P13 implements Checker {
         return INFO;
     }
 
+    public static String askLLM(String text1, String text2) {
+        // Configuramos el modelo local
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        // Hacemos la petición  BirthPlace   isBornInPlace son sinonimos en significado? Responde solo si o no
+        String respuesta = model.generate(
+                "Are these properties" + text1 + " and " + text2 + " inverse in meaning? Answer only yes or no");
+
+        return respuesta;
+
+    }
+
     @Override
     public void check(final CheckingContext context) {
 
@@ -118,7 +133,10 @@ public class P13 implements Checker {
                                     if (domain1range2 && domain2range1 && !withPitfall.contains(property1)
                                             && !withPitfall.contains(property2)) {
                                         withPitfall.add((ObjectProperty) property1);
-
+                                        System.out.println(
+                                                "Prop1 " + property1.toString() + "Prop2" + property2.toString());
+                                        System.out.println(
+                                                "P13 result" + askLLM(property1.toString(), property2.toString()));
                                         context.addResult(PITFALL_INFO_Y, property1, property2);
 
                                         // guardo por separado todas las que tenga sugerencia para luego restarlas
@@ -139,6 +157,8 @@ public class P13 implements Checker {
 
                                     // se proponen si no es functional o asimétrico (no puedo preguntar por esto
                                     // en esta version de Jena)
+
+                                    //AQUI TB SE PUEDEN MEJORAR SUGERENCIAS
                                     if (domain1range1 && !symmetricOrTransitiveSuggestion.contains(property1)
                                             && !property1.isFunctionalProperty()) {
                                         symmetricOrTransitiveSuggestion.add(property1);

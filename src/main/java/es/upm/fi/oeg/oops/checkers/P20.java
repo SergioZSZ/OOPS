@@ -117,7 +117,7 @@ public class P20 implements Checker {
                 dctDescription = ontoRes.getPropertyValue(dctDesc).toString();
             }
 
-            System.out.println("P20" + skosPref);
+            System.out.println("P20 skosPrefLabel" + skosPref);
             System.out.println("P20 label" + label);
             System.out.println("P20 comment" + comment);
 

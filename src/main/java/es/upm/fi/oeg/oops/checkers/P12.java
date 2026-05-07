@@ -75,8 +75,8 @@ public class P12 implements Checker {
         // Configuramos el modelo local
         OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
         // Hacemos la petición  BirthPlace   isBornInPlace son sinonimos en significado? Responde solo si o no
-        String respuesta = model.generate("La propiedad  " + text1 + "y la propiedad " + text2
-                + "son sinonimos en significado? Responde solo si o no");
+        String respuesta = model.generate(
+                "Are these properties " + text1 + " and " + text2 + " equivalent in meaning? Answer only yes or no");
 
         return respuesta;
 
@@ -137,16 +137,20 @@ public class P12 implements Checker {
                                 && !element2.listEquivalentProperties().hasNext()) {
                             String localName2 = element2.getLocalName();
                             if (localName2 != null) {
-                                System.out.println("localName 1" + localName1 + " localname2 " + localName2);
+                                System.out.println("P12 localName 1 " + localName1 + " localname2 " + localName2);
                                 String respuesta = askLLM(localName1, localName2);
 
-                                System.out.println(respuesta);
+                                System.out.println("P12 Respuesta " + respuesta);
                                 //POR AQUI SE AÑADIRIA YO CREO
 
                                 localName2 = localName2.replaceAll("\\W", "");
                                 localName2 = localName2.replaceAll("-", "");
                                 localName2 = localName2.replaceAll("_", "");
                                 localName2 = localName2.toLowerCase();
+                                respuesta = respuesta.toLowerCase();
+                                respuesta = respuesta.replaceAll("\\.", "");
+                                //respuesta = respuesta.replaceAll("\n", "");
+                                System.out.println("P12 Respuesta corregida" + respuesta);
 
                                 if (localName1.equalsIgnoreCase(localName2) && !Checker.fromModels(element1)
                                         && !Checker.fromModels(element2)) {
@@ -160,7 +164,9 @@ public class P12 implements Checker {
                                     values.add(element1);
                                     values.add(element2);
                                     mapResource.put(localName1, values);
-                                } else if (respuesta.equals("Sí.")) {
+                                } else if (respuesta.equals("yes") || respuesta.equals("Yes")
+                                        || respuesta.equals("Yes.")) {
+                                    System.out.println("ME MUERO");
                                     final Set<OntProperty> values;
                                     if (!mapResource.containsKey(localName1)) {
                                         values = new HashSet<OntProperty>();

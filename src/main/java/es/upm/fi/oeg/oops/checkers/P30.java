@@ -60,7 +60,7 @@ public class P30 implements Checker {
 
         // Hacemos la petición
         String respuesta = model.generate(
-                "Traduce el siguiente conjunto de palabras unidas al inglés respetando el formato con el que esta esrito y devolviendo en la respuesta solo el texto traducido sin añadadidos. La palabra a traducir es:"
+                "Translate the following set of words into English, respecting the original formatting and returning only the translated text without any additions. The word to be translated is:"
                         + text);
 
         return respuesta;
@@ -72,8 +72,8 @@ public class P30 implements Checker {
         OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
 
         // Hacemos la petición
-        String respuesta = model.generate("La propiedad  " + text1 + "y la propiedad " + text2
-                + "son sinonimos en significado? Responde solo si o no");
+        String respuesta = model.generate(
+                "Are these properties " + text1 + " and " + text2 + " equivalent in meaning? Answer only yes or no");
 
         return respuesta;
 
@@ -156,7 +156,7 @@ public class P30 implements Checker {
 
                     if (!synonymousPart) {
                         String respuesta30 = equivalentLLM(classTag, classFaceTag);
-                        System.out.println("respuesta30 equivalentes? => " + respuesta30);
+                        System.out.println("P30 respuesta equivalentes? => " + respuesta30);
                         if (respuesta30.equals("Sí.")) {
                             synonymousPart = true;
                         }

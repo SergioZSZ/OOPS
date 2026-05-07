@@ -50,7 +50,9 @@ public class P07 implements Checker {
         OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
         // Hacemos la petición
         String respuesta = model.generate(
-                "Traduce la siguiente palabra al inglés respetando el formato con el que esta esrito y devolviendo en la respuesta solo el texto traducido sin añadadidos. La palabra a traducir es: "
+                "Translate the following word into English . Respect the original formatting and return only the translated text without any additions."
+                        + " If there are two concepts and a conjunction replace it with 'And' Else if there are two concepts and a disjunction replace it with 'Or'."
+                        + "This is the word to translate to english If the text is already in English, don't do anything :"
                         + text);
 
         return respuesta;
@@ -68,9 +70,10 @@ public class P07 implements Checker {
         final Set<OntClass> withPitfall = new HashSet<>();
         for (final OntClass ontoClass : classes) {
             final String localName = ontoClass.getLocalName();
+            System.out.println("P07 ORIGINAL " + localName);
 
             final String localName2 = askLLM(localName);
-            System.out.println(localName2);
+            System.out.println("P07 TRADUCIDO " + localName2);
 
             final String tokenizedString = Tokenizer.tokenizedString(localName2);
             for (final String token : Tokenizer.tokenize(localName2)) {

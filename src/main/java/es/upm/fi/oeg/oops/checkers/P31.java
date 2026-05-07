@@ -60,7 +60,7 @@ public class P31 implements Checker {
 
         // Hacemos la petición
         String respuesta = model.generate(
-                "Traduce el siguiente conjunto de palabras unidas al inglés respetando el formato con el que esta escrito y devolviendo en la respuesta solo el texto traducido sin añadadidos. La palabra a traducir es:"
+                "Translate the following set of words into English, respecting the original formatting and returning only the translated text without any additions. The word to be translated is:"
                         + text);
 
         return respuesta;
