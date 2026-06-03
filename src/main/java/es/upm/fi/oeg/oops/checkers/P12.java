@@ -166,7 +166,6 @@ public class P12 implements Checker {
                                     mapResource.put(localName1, values);
                                 } else if (respuesta.equals("yes") || respuesta.equals("Yes")
                                         || respuesta.equals("Yes.")) {
-                                    System.out.println("ME MUERO");
                                     final Set<OntProperty> values;
                                     if (!mapResource.containsKey(localName1)) {
                                         values = new HashSet<OntProperty>();
