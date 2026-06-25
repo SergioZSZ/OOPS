@@ -1,24 +1,43 @@
-# SPDX-FileCopyrightText: 2025 Robin Vobruba <hoijui.quaero@gmail.com>
-#
-# SPDX-License-Identifier: Apache-2.0
+# Maven / Java
+target/
+**/target/
+dependency-reduced-pom.xml
+**/dependency-reduced-pom.xml
 
-/target
-/dependency-reduced-pom.xml
-/.factorypath
-/.classpath
-/.project
-/.settings/
-/actual.ttl
-/expected.ttl
-/.idea
+# IDE / editor
+.idea/
+**/.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+.factorypath
+**/.classpath
+**/.project
+**/.settings/
+**/.factorypath
+
+# Local environment
+.env
+*.local
+
+# OOPS local outputs
+actual.ttl
+expected.ttl
+**/actual.ttl
+**/expected.ttl
+
+# Shared runtime volume used by OOPsBasic and OOPsPlus.
+data/
+ignore/
 
 
+# Graphify local knowledge graph artifacts.
+graphify-out/
+.graphifyignore
+.codex/hooks.json
 
-
-# Graphify knowledge-graph artifacts and local Codex hook config.
-# Agents may still read these files when present; this only keeps them out of Git.
-/graphify-out/
-/.graphifyignore
-/.codex/hooks.json
-ignore
-AGENTS.md
+# OS noise
+.DS_Store
+Thumbs.db

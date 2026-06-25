@@ -1,0 +1,43 @@
+services:
+  # Despliega ollama
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # Descarga el modelo
+  ollama-pull-model:
+    image: ollama/ollama:latest
+    container_name: ollama-pull-model
+    volumes:
+      - ollama_data:/root/.ollama
+    entrypoint: /bin/sh
+    command: -c "ollama serve & sleep 5 && ollama pull gemma3:4b"
+
+  # Despliega mi OOPS!
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oops-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ollama
+    restart: always
+
+# Declaración global de volúmenes en la raíz
+volumes:
+  ollama_data:
+    name: ollama_data

@@ -1,43 +1,70 @@
 services:
-  # Despliega ollama
+  # Shared LLM runtime used by OOPsPlus checkers.
   ollama:
     image: ollama/ollama:latest
-    container_name: ollama
+    container_name: oops-ollama
     ports:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
 
-  # Descarga el modelo
+  # Pulls the configured model into the shared Ollama volume.
   ollama-pull-model:
     image: ollama/ollama:latest
-    container_name: ollama-pull-model
+    container_name: oops-ollama-pull-model
+    env_file:
+      - .env
     volumes:
       - ollama_data:/root/.ollama
     entrypoint: /bin/sh
-    command: -c "ollama serve & sleep 5 && ollama pull gemma3:4b"
+    command: -c "ollama serve & sleep 5 && ollama pull ${LLM_MODEL:-gemma3:4b}"
 
-  # Despliega mi OOPS!
-  web-app:
+  # Shared queue for OOPS+ report jobs published by OOPsBasic.
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: oops-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER:-oops}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-oops}
+    restart: unless-stopped
+
+  # Normal OOPS web application. It serves the immediate report.
+  web-app-oops-basic:
     build:
-      context: .
+      context: ./OOPsBasic
       dockerfile: Dockerfile
-    container_name: oops-app
+    container_name: oops-basic
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     depends_on:
-      - ollama
-    restart: always
+      - rabbitmq
+    volumes:
+      - ./data/oops_analyses:/data/oops/analyses
+    restart: unless-stopped
 
-# Declaración global de volúmenes en la raíz
+  # OOPS+ web application. It will process queued LLM reports.
+  web-app-oops-plus:
+    build:
+      context: ./OOPsPlus
+      dockerfile: Dockerfile
+    container_name: oops-plus
+    env_file:
+      - .env
+    ports:
+      - "8081:8080"
+    depends_on:
+      - ollama
+      - rabbitmq
+    volumes:
+      - ./data/oops_analyses:/data/oops/analyses
+    restart: unless-stopped
+
 volumes:
   ollama_data:
-    name: ollama_data
+    name: oops_ollama_data

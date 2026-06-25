@@ -1,0 +1,92 @@
+PREFIX oops: <http://oops.linkeddata.es/def#>
+
+<http://oops.linkeddata.es/data/1ddf0882-25d6-4384-8b3d-462b7aa39e7a>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "https://w3id.org/valueflows/ont/vf#pairsWith"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#contains"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#containedIn"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#corrects"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P13-S - Inverse relationships not explicitly declared - Symmetric or Transitive?";
+        oops:hasDescription             "This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Inverse relationships not explicitly declared - Symmetric or Transitive?";
+        oops:hasNumberAffectedElements  4 .
+
+<http://oops.linkeddata.es/data/19c1edab-7c91-4e41-9dcc-fff3770ad8bf>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "http://www.w3.org/2006/time#hasBeginning"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#label"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2003/01/geo/wgs84_pos#alt"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#note"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2003/01/geo/wgs84_pos#lat"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#symbol"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/symbol"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2003/01/geo/wgs84_pos#long"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2006/time#inXSDDateTimeStamp"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2004/02/skos/core#note"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#omUnitIdentifier"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2006/time#hasEnd"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P35 - Untyped property";
+        oops:hasDescription             "An ontology element is used as a property without having been explicitly declared as such using the primitives rdf:Property, owl:ObjectProperty or owl:DatatypeProperty. This pitfall is related with the common problems listed in [8].";
+        oops:hasImportanceLevel         "IMPORTANT";
+        oops:hasName                    "Untyped property";
+        oops:hasNumberAffectedElements  14 .
+
+<http://oops.linkeddata.es/data/38e91b03-7f84-4962-9c7f-9ec6141a4f58>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P04 - Creating unconnected ontology elements";
+        oops:hasDescription             "Ontology elements (classes, object properties and datatype properties) exist in isolation, with no relation to the rest of the ontology.";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Creating unconnected ontology elements";
+        oops:hasNumberAffectedElements  3 .
+
+<http://oops.linkeddata.es/data/4a16a110-674a-438c-9161-7a2090cab1d3>
+        a                               oops:pitfall;
+        oops:hasCode                    "P39 - Ambiguous namespace";
+        oops:hasDescription             "This pitfall consists in declaring neither the ontology URI nor the base namespace. If this is the case, the ontology namespace is matched to the file location. This situation is not desirable, as the location of a file might change while the ontology should remain stable, as proposed in [12].";
+        oops:hasImportanceLevel         "CRITICAL";
+        oops:hasName                    "Ambiguous namespace";
+        oops:hasNumberAffectedElements  1 .
+
+<http://oops.linkeddata.es/data/b9bd4fd3-bd72-4343-a4df-410f678175e4>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "https://w3id.org/valueflows/ont/vf#triggeredBy"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#settles"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P13-Y - Inverse relationships not explicitly declared - With Suggestion";
+        oops:hasDescription             "This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Inverse relationships not explicitly declared - With Suggestion";
+        oops:hasNumberAffectedElements  1 .
+
+<http://oops.linkeddata.es/data/cc0afe00-f190-40b5-9702-35bdceef9dc7>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "https://w3id.org/valueflows/ont/vf#conformsTo"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#hasDuration"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#primaryOutput"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#onhandQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#reciprocal"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#unitOfEffort"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#resourceClassifiedAs"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#toLocation"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#resourceConformsTo"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#satisfies"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#fulfills"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#inputOutput"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#state"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#resourceInventoriedAs"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#action"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#minimumQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#processClassifiedAs"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#inScopeOf"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#corrects"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#effortQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#stateEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#receiver"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#currentLocation"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#hasDetailedGeometry"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#accountableEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#primaryLocation"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#onhandEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#publishes"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#accountingQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#stageEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#resourceQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#accountingEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#provider"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#basedOn"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#availableQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#proposedTo"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#createResource"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#recipeIncludes"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#ofBatchLot"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#pairsWith"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#toResourceInventoriedAs"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#eligibleLocation"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#primaryAccountable"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#eventQuantity"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#classifiedAs"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#defaultUnitOfEffort"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#containedEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#stage"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#hasUnit"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#locationEffect"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#purpose"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#processConformsTo"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#defaultUnitOfResource"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P13-N - Inverse relationships not explicitly declared - No Suggestion";
+        oops:hasDescription             "This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Inverse relationships not explicitly declared - No Suggestion";
+        oops:hasNumberAffectedElements  53 .
+
+<http://oops.linkeddata.es/data/b749034e-fb18-4799-9d28-00708b54b92b>
+        a                               oops:pitfall;
+        oops:hasCode                    "P10 - Missing disjoint-ness";
+        oops:hasDescription             "The ontology lacks disjoint axioms between classes or between properties that should be defined as disjoint. This pitfall is related to the guidelines provided in [6], [2] and [7].";
+        oops:hasImportanceLevel         "IMPORTANT";
+        oops:hasName                    "Missing disjoint-ness";
+        oops:hasNumberAffectedElements  1 .
+
+<http://oops.linkeddata.es/data/300dfbe8-828a-4ca4-992d-d43fb10fa105>
+        a                               oops:pitfall;
+        oops:hasCode                    "P36 - URI contains file extension";
+        oops:hasDescription             "This pitfall occurs if file extensions such as \".owl\", \".rdf\", \".ttl\", \".n3\" and \".rdfxml\" are included in an ontology URI. This pitfall is related with the recommendations provided in [9].";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "URI contains file extension";
+        oops:hasNumberAffectedElements  1 .
+
+<http://oops.linkeddata.es/data/40074695-8bf1-4447-b086-58f4c8cbcba6>
+        a                oops:response;
+        oops:hasPitfall  <http://oops.linkeddata.es/data/4a16a110-674a-438c-9161-7a2090cab1d3> , <http://oops.linkeddata.es/data/e7488f94-7879-49a9-9c73-9136cad8a907> , <http://oops.linkeddata.es/data/b749034e-fb18-4799-9d28-00708b54b92b> , <http://oops.linkeddata.es/data/7c47d4fa-53f5-4344-87df-b8b19edbe0ee> , <http://oops.linkeddata.es/data/300dfbe8-828a-4ca4-992d-d43fb10fa105> , <http://oops.linkeddata.es/data/19c1edab-7c91-4e41-9dcc-fff3770ad8bf> , <http://oops.linkeddata.es/data/1ddf0882-25d6-4384-8b3d-462b7aa39e7a> , <http://oops.linkeddata.es/data/38e91b03-7f84-4962-9c7f-9ec6141a4f58> , <http://oops.linkeddata.es/data/b9bd4fd3-bd72-4343-a4df-410f678175e4> , <http://oops.linkeddata.es/data/cc0afe00-f190-40b5-9702-35bdceef9dc7> .
+
+<http://oops.linkeddata.es/data/e7488f94-7879-49a9-9c73-9136cad8a907>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#long"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#Agreenent"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#alt"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#lat"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P08-A - Missing annotations - Label & Comment";
+        oops:hasDescription             "This pitfall consists in creating an ontology element and failing to provide human readable annotations attached to it. Consequently, ontology elements lack annotation properties that label them (e.g. rdfs:label, lemon:LexicalEntry, skos:prefLabel or skos:altLabel) or that define them (e.g. rdfs:comment or dc:description). This pitfall is related to the guidelines provided in [5].";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Missing annotations - Label & Comment";
+        oops:hasNumberAffectedElements  7 .
+
+<http://oops.linkeddata.es/data/7c47d4fa-53f5-4344-87df-b8b19edbe0ee>
+        a                               oops:pitfall;
+        oops:hasAffectedElement         "http://www.linkedmodel.org/schema/dtype#numericUnion"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "https://w3id.org/valueflows/ont/vf#PairsWith"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.opengis.net/ont/geosparql#Geometry"^^<http://www.w3.org/2001/XMLSchema#anyURI>;
+        oops:hasCode                    "P34 - Untyped class";
+        oops:hasDescription             "An ontology element is used as a class without having been explicitly declared as such using the primitives owl:Class or rdfs:Class. This pitfall is related with the common problems listed in [8].";
+        oops:hasImportanceLevel         "MINOR";
+        oops:hasName                    "Untyped class";
+        oops:hasNumberAffectedElements  3 .
