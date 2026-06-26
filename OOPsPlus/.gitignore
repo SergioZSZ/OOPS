@@ -12,14 +12,4 @@
 /expected.ttl
 /.idea
 /.env
-
-
-
-
-# Graphify knowledge-graph artifacts and local Codex hook config.
-# Agents may still read these files when present; this only keeps them out of Git.
-/graphify-out/
-/.graphifyignore
-/.codex/hooks.json
 ignore
-AGENTS.md

@@ -28,15 +28,11 @@ expected.ttl
 **/actual.ttl
 **/expected.ttl
 
-# Shared runtime volume used by OOPsBasic and OOPsPlus.
+# Shared runtime volume and local ignored workspace files.
 data/
 ignore/
 
-
-# Graphify local knowledge graph artifacts.
-graphify-out/
-.graphifyignore
-.codex/hooks.json
+OOPsPlus/.github
 
 # OS noise
 .DS_Store

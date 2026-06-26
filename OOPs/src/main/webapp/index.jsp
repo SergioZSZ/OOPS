@@ -93,7 +93,12 @@ SPDX-License-Identifier: Apache-2.0
 	Enter a direct input:&#10;&#10;	If you include just RDF code, the following Pitfalls will not be checked:&#10;&#10;		P36. URI contains file extension&#10;&#10;		P37.Ontology not available&#10;&#10;		P40. Namespace hijacking"><%if ((byLINK || byRDF)){out.println(rdf);}%></textarea>
 
 					<p style="font-size: 10px;"><input  type="checkbox" name="saveOntology" value="saveOntology" > Uncheck this checkbox if you don't want us to keep a copy of your ontology.</p>
-				
+					
+					<p style="font-size: 10px;">
+						<input type="checkbox" name="useOopsPlus" value="true">
+						Use OOPS+ report with LLM checks!
+					</p>
+					
 					<br>
 					<input type="submit" class="button" name="button" value="Scan"
 						onclick="doValidation()">

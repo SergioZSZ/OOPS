@@ -1,5 +1,5 @@
 services:
-  # Shared LLM runtime used by OOPsPlus checkers.
+  # Shared LLM runtime used by OOPsPlus checkers
   ollama:
     image: ollama/ollama:latest
     container_name: oops-ollama
@@ -9,7 +9,7 @@ services:
       - ollama_data:/root/.ollama
     restart: unless-stopped
 
-  # Pulls the configured model into the shared Ollama volume.
+  # Pulls the configured model into the shared Ollama volume
   ollama-pull-model:
     image: ollama/ollama:latest
     container_name: oops-ollama-pull-model
@@ -20,7 +20,7 @@ services:
     entrypoint: /bin/sh
     command: -c "ollama serve & sleep 5 && ollama pull ${LLM_MODEL:-gemma3:4b}"
 
-  # Shared queue for OOPS+ report jobs published by OOPsBasic.
+  # Shared queue for OOPS+ report jobs published by OOPs
   rabbitmq:
     image: rabbitmq:3-management
     container_name: oops-rabbitmq
@@ -32,12 +32,12 @@ services:
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-oops}
     restart: unless-stopped
 
-  # Normal OOPS web application. It serves the immediate report.
-  web-app-oops-basic:
+  # Normal OOPS web application. It serves the immediate report
+  web-app-oops:
     build:
-      context: ./OOPsBasic
+      context: ./OOPs
       dockerfile: Dockerfile
-    container_name: oops-basic
+    container_name: oops
     env_file:
       - .env
     ports:
@@ -48,7 +48,7 @@ services:
       - ./data/oops_analyses:/data/oops/analyses
     restart: unless-stopped
 
-  # OOPS+ web application. It will process queued LLM reports.
+  # OOPS+ web application. It shows queued LLM reports when they are ready
   web-app-oops-plus:
     build:
       context: ./OOPsPlus
@@ -58,6 +58,20 @@ services:
       - .env
     ports:
       - "8081:8080"
+    depends_on:
+      - ollama
+      - rabbitmq
+    volumes:
+      - ./data/oops_analyses:/data/oops/analyses
+    restart: unless-stopped
+
+  # Background worker that consumes OOPS+ ontology jobs one by one
+  oops-plus-worker:
+    build:
+      context: ./OOPsPlus
+      dockerfile: Dockerfile.worker
+    env_file:
+      - .env
     depends_on:
       - ollama
       - rabbitmq

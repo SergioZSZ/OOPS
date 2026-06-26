@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 --%>
 
 <%@ page contentType="text/html; charset=utf-8"
-	import="es.upm.fi.oeg.oops.*, java.util.*, java.util.function.Function, java.util.stream.Collectors, java.io.PrintStream, org.apache.jena.rdf.model.*, org.apache.jena.ontology.OntResource" errorPage=""%>
+	import="es.upm.fi.oeg.oops.*, es.upm.fi.oeg.oops.service.web.OopsPlusSubmission, es.upm.fi.oeg.oops.service.web.OopsPlusSubmissionService, java.util.*, java.util.function.Function, java.util.stream.Collectors, java.io.PrintStream, org.apache.jena.rdf.model.*, org.apache.jena.ontology.OntResource" errorPage=""%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -66,6 +66,9 @@ SPDX-License-Identifier: Apache-2.0
 			final String button = request.getParameter("button");
 			final String buttonLINK = request.getParameter("buttonLINK");
 			final String save = request.getParameter("saveOntology");
+			final boolean useOopsPlus = "true".equals(request.getParameter("useOopsPlus"));
+			final boolean removeOntologyForOopsPlus = save == null;
+			OopsPlusSubmission oopsPlusSubmission = null;
 
 			int pos = 0;
 
@@ -134,6 +137,12 @@ SPDX-License-Identifier: Apache-2.0
 				final SrcSpec srcSpec;
 				if (byRDF) {
 					srcSpec = new SrcSpec(SrcType.RDF_CODE, null, rdf, null);
+					
+					if (useOopsPlus) {
+				final OopsPlusSubmissionService oopsPlusService = new OopsPlusSubmissionService();
+				oopsPlusSubmission = oopsPlusService.submit(rdf, removeOntologyForOopsPlus);
+    				}
+
 				} else {
 					if (!uri.startsWith("http")){
 						excNoHttp = true;
@@ -283,6 +292,21 @@ SPDX-License-Identifier: Apache-2.0
 					// List<Integer> checkIds = new ArrayList<>();
 					// List<String> titlesAux = new ArrayList<String>();
 					// List<String> explanationsAux = new ArrayList<String>();
+					
+					
+					if (oopsPlusSubmission != null) {
+						final String oopsPlusReportUrl = "http://localhost:8081" + request.getContextPath()
+								+ "/report-oops-plus.jsp?analysisId=" + oopsPlusSubmission.getAnalysisId();
+					%>
+						<div class="txt">
+							<h3>OOPS+ report</h3>
+							<p>Your OOPS+ report is being processed.</p>
+							<a href="<%= oopsPlusReportUrl %>"><%= oopsPlusReportUrl %></a>
+						</div>
+						<br>
+					<%
+					}
+					
 					boolean none = true;
 					if (selectedEvaluation == null) {
 						selectedEvaluation = "none";

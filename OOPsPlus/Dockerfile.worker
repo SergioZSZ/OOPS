@@ -1,0 +1,9 @@
+FROM maven:3.9-eclipse-temurin-17
+
+WORKDIR /oops
+
+COPY . /oops
+
+RUN mvn -q package dependency:copy-dependencies -Dmaven.test.skip=true
+
+CMD ["java", "-cp", "target/classes:target/dependency/*", "es.upm.fi.oeg.oops.workers.OopsPlusJobConsumer"]
