@@ -15,8 +15,8 @@ import java.util.Properties;
  */
 public class Constants {
 
-    public static final String LLM_IP = "http://ollama:11434";
-    public static final String LLM_MODEL = "gemma3:4b";
+    public static final String LLM_IP = "";
+    public static final String LLM_MODEL = "";
     public static final String LLM_SERVICE = "";
     // Licensius service
     // public static final String licensiusServiceLicenseRaw = "http://licensius.appspot.com/getLicenseRaw?rdf=";
