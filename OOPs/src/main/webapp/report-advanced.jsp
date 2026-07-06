@@ -295,8 +295,13 @@ SPDX-License-Identifier: Apache-2.0
 					
 					
 					if (oopsPlusSubmission != null) {
-						final String oopsPlusReportUrl = "http://localhost:8081" + request.getContextPath()
-								+ "/report-oops-plus.jsp?analysisId=" + oopsPlusSubmission.getAnalysisId();
+						final String oopsPlusDomain = System.getenv()
+						.getOrDefault("OOPS_PLUS_DOMAIN", "http://localhost:8081");
+
+				final String oopsPlusReportUrl = oopsPlusDomain
+						+ request.getContextPath()
+						+ "/report-oops-plus.jsp?analysisId="
+						+ oopsPlusSubmission.getAnalysisId();
 					%>
 						<div class="txt">
 							<h3>OOPS+ report</h3>
