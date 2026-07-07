@@ -32,7 +32,7 @@ public class P17 implements Checker {
 
     public static String askLLM(String clase, List<String> subclases) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName("gemma3:4b").build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
         System.out.println("P17 PRUEBA" + subclases.toString());
         // Hacemos la petición
         String respuesta = model.generate(

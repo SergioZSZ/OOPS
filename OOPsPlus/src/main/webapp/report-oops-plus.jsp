@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 --%>
 
 <%@ page contentType="text/html; charset=utf-8"
-	import="com.fasterxml.jackson.databind.ObjectMapper, es.upm.fi.oeg.oops.Utils, java.nio.charset.StandardCharsets, java.nio.file.Files, java.nio.file.Path, java.util.Map" errorPage=""%>
+	import="com.fasterxml.jackson.databind.ObjectMapper, es.upm.fi.oeg.oops.Constants, es.upm.fi.oeg.oops.Utils, java.nio.charset.StandardCharsets, java.nio.file.Files, java.nio.file.Path, java.util.Map" errorPage=""%>
 
 <%!
 private static final Path ANALYSES_DIR = Path.of("/data/oops/analyses");
@@ -80,11 +80,7 @@ if (analysisId == null || analysisId.isBlank()) {
 	<%
 	}
 	%>
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-		crossorigin="anonymous">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<title>OOPS+ - Report</title>
@@ -110,6 +106,7 @@ if (analysisId == null || analysisId.isBlank()) {
 			%>
 				<div class="txt">
 					<h3>Processing report</h3>
+					<p>Using model: <strong><%= Utils.escapeForHtml(Constants.LLM_MODEL) %></strong></p>
 					<p>The OOPS+ report for analysis <strong><%= Utils.escapeForHtml(analysisId) %></strong> is currently <strong><%= Utils.escapeForHtml(status) %></strong>.</p>
 					<p>This page refreshes automatically every 5 seconds.</p>
 				</div>
@@ -127,6 +124,7 @@ if (analysisId == null || analysisId.isBlank()) {
 			%>
 				<div class="txt">
 					<h3>OOPS+ analysis completed</h3>
+					<p>Using model: <strong><%= Utils.escapeForHtml(Constants.LLM_MODEL) %></strong></p>
 					<p>Analysis: <strong><%= Utils.escapeForHtml(analysisId) %></strong></p>
 				</div>
 				<br>

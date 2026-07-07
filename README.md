@@ -65,6 +65,61 @@ docker compose up -d --build
 
 The first run may take longer because the Ollama model has to be downloaded.
 
+### Downloading and changing Ollama models
+
+The model used by OOPS+ is configured in `.env`:
+
+```env
+LLM_MODEL=gemma3:4b
+```
+
+Changing `LLM_MODEL` only tells the OOPS+ worker which model to use. The model must also exist in the shared Ollama volume. If you choose a model that has not been used before, pull it once with the helper service:
+
+```bash
+docker compose pull ollama ollama-pull-model
+docker compose run --rm ollama-pull-model
+```
+
+Then check that the model is available:
+
+```bash
+docker compose exec ollama ollama list
+```
+
+For example, after pulling both `gemma3:4b` and `gemma4:12b`, the list should contain entries like:
+
+```text
+NAME          ID              SIZE
+gemma3:4b     ...             3.3 GB
+gemma4:12b    ...             7.6 GB
+```
+
+If you change `.env` to a model that is already listed by `ollama list`, you do not need to download it again. Recreate the services that read the environment variable so they pick up the new value:
+
+```bash
+docker compose up -d --build web-app-oops web-app-oops-plus oops-plus-worker
+```
+
+If the OOPS+ worker logs show an error like:
+
+```text
+model 'gemma4:12b' not found
+```
+
+then the configured model is not available in the Ollama volume. Run the pull helper again and check its output:
+
+```bash
+docker compose run --rm ollama-pull-model
+```
+
+If Ollama says the model requires a newer version, update the Ollama image first:
+
+```bash
+docker compose pull ollama ollama-pull-model
+```
+
+and then retry the pull helper.
+
 Useful URLs:
 
 - OOPS!: `http://localhost:8080/oops-0.3.0-SNAPSHOT/`
