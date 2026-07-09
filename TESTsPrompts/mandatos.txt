@@ -1,0 +1,22 @@
+
+
+(cd TESTsPrompts/Limitaciones && jbang P12.java > resultado_Limitaciones_P12_suelto.txt 2>&1)
+
+(cd TESTsPrompts/Limitaciones/P03_P21_P30_P31 && jbang PromptP03_P21_P30_P31.java > resultado_P03_P21_P30_P31.txt 2>&1)
+
+(cd TESTsPrompts/Limitaciones/P07 && jbang PromptP07.java > resultado_P07.txt 2>&1)
+
+(cd TESTsPrompts/Limitaciones/P10 && jbang PromptP10.java > resultado_P10.txt 2>&1)
+
+(cd TESTsPrompts/Limitaciones/P12 && jbang P12.java > resultado_P12.txt 2>&1)
+
+(cd TESTsPrompts/Limitaciones/P13 && jbang PromptP13.java > resultado_P13.txt 2>&1)
+
+(cd TESTsPrompts/NoImplementadas/P01 && jbang P01.java > resultado_P01.txt 2>&1)
+
+(cd TESTsPrompts/NoImplementadas/P14 && jbang P12.java > resultado_P14.txt 2>&1)
+
+(cd TESTsPrompts/NoImplementadas/P17 && jbang P17.java > resultado_P17.txt 2>&1)
+
+(cd TESTsPrompts/NoImplementadas/P18 && jbang P18.java > resultado_P18.txt 2>&1)
+

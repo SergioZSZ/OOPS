@@ -1,0 +1,120 @@
+[jbang] Building jar for P17.java...
+
+Clase padre: Country Subclases: france, japan, brazil
+Respuesta del modelo: no | Esperada: yes
+Tiempo de peticion: 5774ms
+
+Clase padre: Vehicle Subclases: car, boat, airplane
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6736ms
+YES
+
+Clase padre: Planet Subclases: earth, mars, venus
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6799ms
+YES
+
+Clase padre: Building Subclases: hospital, school, residentialhouse
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6852ms
+YES
+
+Clase padre: Movie Subclases: thegodfather, inception, titanic
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 7753ms
+YES
+
+Clase padre: MusicalInstrument Subclases: guitar, piano, flute
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6309ms
+YES
+
+Clase padre: Author Subclases: shakespeare, tolkien, rowling
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6320ms
+YES
+
+Clase padre: WaterBody Subclases: river, lakevictoria, ocean
+Respuesta del modelo: no | Esperada: yes
+Tiempo de peticion: 6072ms
+
+Clase padre: Profession Subclases: doctor, teacher, engineer
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 5834ms
+YES
+
+Clase padre: Company Subclases: apple, microsoft, google
+Respuesta del modelo: no | Esperada: yes
+Tiempo de peticion: 5969ms
+
+Clase padre: Beverage Subclases: water, juice, soda
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6133ms
+YES
+
+Clase padre: River Subclases: amazon, nile, thames
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6130ms
+YES
+
+Clase padre: Organization Subclases: university, harvard, corporation
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6069ms
+YES
+
+Clase padre: Furniture Subclases: chair, table, bed
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6051ms
+YES
+
+Clase padre: Artwork Subclases: painting, monalisa, sculpture
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6224ms
+YES
+
+Clase padre: Monument Subclases: eiffeltower, tajmahal, colosseum
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6517ms
+YES
+
+Clase padre: Appliance Subclases: refrigerator, microwave, oven
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 7109ms
+YES
+
+Clase padre: Book Subclases: mobydick, nineteeneightyfour, prideandprejudice
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6763ms
+YES
+
+Clase padre: Weapon Subclases: sword, bow, firearm
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6476ms
+YES
+
+Clase padre: Ocean Subclases: atlantic, pacific, indian
+Respuesta del modelo: no | Esperada: yes
+Tiempo de peticion: 7034ms
+
+Clase padre: Clothing Subclases: shirt, pants, jacket
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 7331ms
+YES
+
+Clase padre: Currency Subclases: usdollar, euro, japaneseyen
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 8189ms
+YES
+
+Clase padre: Sport Subclases: soccer, basketball, tennis
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6724ms
+YES
+
+Clase padre: Scientist Subclases: physicist, alberteinstein, chemist
+Respuesta del modelo: no | Esperada: yes
+Tiempo de peticion: 6516ms
+
+-------------------------------------------
+19/24 correctas. % de aciertos 79.16666666666666%
+-------------------------------------------

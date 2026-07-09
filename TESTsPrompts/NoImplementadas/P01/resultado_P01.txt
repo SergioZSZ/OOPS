@@ -1,0 +1,151 @@
+[jbang] Building jar for P01.java...
+
+Clase padre: Theatre subclases building, art
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3250ms
+YES
+
+Clase padre: Bank subclases finance, river
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5355ms
+YES
+
+Clase padre: Virus subclases organism, software
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5466ms
+YES
+
+Clase padre: Plant subclases botany, factory
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5485ms
+YES
+
+Clase padre: Mouse subclases animal, hardware
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5807ms
+YES
+
+Clase padre: Host subclases biology, network
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5955ms
+YES
+
+Clase padre: Domain subclases territory, internet
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5724ms
+YES
+
+Clase padre: Class subclases school, software
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 5979ms
+YES
+
+Clase padre: Car subclases vehicle, transport
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 5973ms
+YES
+
+Clase padre: Person subclases human, individual
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 5999ms
+YES
+
+Clase padre: House subclases building, home
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 7654ms
+
+Clase padre: Dog subclases animal, pet
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6995ms
+YES
+
+Clase padre: Computer subclases machine, device
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 6196ms
+YES
+
+Clase padre: Water subclases liquid, resource
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 5807ms
+
+Clase padre: Book subclases literature, text
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 5920ms
+
+Clase padre: Guitar subclases instrument, music
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 5920ms
+
+Clase padre: City subclases location, town
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 5939ms
+
+Clase padre: bat subclases flying_mammal, sports_equipment
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 6181ms
+YES
+
+Clase padre: bark subclases tree_covering, dog_sound
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3816ms
+YES
+
+Clase padre: scale subclases measuring_instrument, fish_covering
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3706ms
+YES
+
+Clase padre: bug subclases insect, software_error
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3602ms
+YES
+
+Clase padre: current subclases water_flow, electrical_flow
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3775ms
+YES
+
+Clase padre: node subclases network_connection, plant_stem_part
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3460ms
+YES
+
+Clase padre: bass subclases fish_species, low_frequency_sound
+Respuesta del modelo: yes | Esperada: yes
+Tiempo de peticion: 3228ms
+YES
+
+Clase padre: mammal subclases primate, carnivore
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 3110ms
+YES
+
+Clase padre: forest subclases woods, woodland
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 3121ms
+
+Clase padre: developer subclases programmer, software_engineer
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 3254ms
+YES
+
+Clase padre: mountain subclases peak, summit
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 3265ms
+
+Clase padre: algorithm subclases sorting_algorithm, search_algorithm
+Respuesta del modelo: no | Esperada: no
+Tiempo de peticion: 3391ms
+YES
+
+Clase padre: ecosystem subclases marine_ecosystem, terrestrial_ecosystem
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 5149ms
+
+Clase padre: vehicle subclases automobile, truck
+Respuesta del modelo: yes | Esperada: no
+Tiempo de peticion: 3587ms
+
+-------------------------------------------
+22/31 correctas. % de aciertos 70.96774193548387%
+-------------------------------------------
