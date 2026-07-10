@@ -21,6 +21,7 @@ import es.upm.fi.oeg.oops.PitfallId;
 import es.upm.fi.oeg.oops.PitfallInfo;
 import es.upm.fi.oeg.oops.PitfallInfo.AccompPer;
 import es.upm.fi.oeg.oops.RuleScope;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -56,7 +57,8 @@ public class P10 implements Checker {
     }
     public static String askLLM(String nombre, List<OntClass> subClassesList) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
         String classesName = "";
         for (int i = 0; i < subClassesList.size(); i++) {
             classesName = classesName + ", " + subClassesList.get(i).getLocalName();

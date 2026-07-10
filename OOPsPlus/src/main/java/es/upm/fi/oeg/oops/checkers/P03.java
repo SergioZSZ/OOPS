@@ -21,6 +21,7 @@ import es.upm.fi.oeg.oops.PitfallCategoryId;
 import es.upm.fi.oeg.oops.PitfallId;
 import es.upm.fi.oeg.oops.PitfallInfo;
 import es.upm.fi.oeg.oops.RuleScope;
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import org.apache.jena.ontology.ObjectProperty;
@@ -59,7 +60,8 @@ public class P03 implements Checker {
 
     public static String testLLM(String text) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
 
         // Hacemos la petición
         String respuesta = model.generate(

@@ -26,6 +26,7 @@ import es.upm.fi.oeg.oops.PitfallInfo;
 import es.upm.fi.oeg.oops.PitfallInfo.AccompPer;
 import es.upm.fi.oeg.oops.RuleScope;
 import es.upm.fi.oeg.oops.SynsetHelp;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Set;
 import net.sf.extjwnl.JWNLException;
@@ -56,7 +57,8 @@ public class P30 implements Checker {
 
     public static String translateLLM(String text) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
 
         // Hacemos la petición
         String respuesta = model.generate(
@@ -69,7 +71,8 @@ public class P30 implements Checker {
 
     public static String equivalentLLM(String text1, String text2) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
 
         // Hacemos la petición
         String respuesta = model.generate(

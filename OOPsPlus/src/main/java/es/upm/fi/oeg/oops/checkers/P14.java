@@ -5,6 +5,7 @@ import static es.upm.fi.oeg.oops.Constants.LLM_MODEL;
 
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import es.upm.fi.oeg.oops.*;
+import java.time.Duration;
 import java.util.*;
 import org.apache.jena.ontology.AllValuesFromRestriction;
 import org.apache.jena.ontology.OntClass;
@@ -33,7 +34,8 @@ public class P14 implements Checker {
 
     public static String askLLM(String classA, String prop, String classB) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
         // Hacemos la petición
         String respuesta = model.generate("Is it possible to have individuals that do not belong to class " + classA
                 + " not to " + prop + " " + classB + " ? Answer strictly 'Yes' or 'No'.");

@@ -5,6 +5,7 @@ import static es.upm.fi.oeg.oops.Constants.LLM_MODEL;
 
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import es.upm.fi.oeg.oops.*;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -35,7 +36,8 @@ public class P18 implements Checker {
 
     public static String askDomLLM(String property, String supClass, String clase) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
         System.out.println("P18 PRUEBA Domain relacion" + property + "supCLass" + supClass + "class" + clase);
         // Hacemos la petición
         String respuesta = model.generate(" Task: Determine if the class " + supClass
@@ -46,7 +48,8 @@ public class P18 implements Checker {
     }
     public static String askRanLLM(String property, String supClass, String clase) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
         System.out.println("P18 PRUEBA Range relacion" + property + "supCLass" + supClass + "class" + clase);
         // Hacemos la petición
         String respuesta = model.generate(" Task: Determine if the class " + supClass

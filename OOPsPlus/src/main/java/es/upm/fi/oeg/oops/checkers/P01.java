@@ -5,6 +5,7 @@ import static es.upm.fi.oeg.oops.Constants.LLM_MODEL;
 
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import es.upm.fi.oeg.oops.*;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -33,7 +34,8 @@ public class P01 implements Checker {
 
     public static String askLLM(String clase, List<String> subclases) {
         // Configuramos el modelo local
-        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL).build();
+        OllamaChatModel model = OllamaChatModel.builder().baseUrl(LLM_IP).modelName(LLM_MODEL)
+                .timeout(Duration.ofMinutes(10)).build();
         System.out.println("P01 PRUEBA" + subclases.toString());
         // Hacemos la petición
         String respuesta = model
